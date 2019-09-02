@@ -27,7 +27,8 @@
         <hibernate.validator.version>6.0.13.Final</hibernate.validator.version>
         <pagehelper.version>4.2.1</pagehelper.version>
         <fastjson.version>1.2.54</fastjson.version>
-        <jackson.version>2.9.7</jackson.version>
+        <jackson.version>2.9.9</jackson.version>
+        <jackson.databind.version>2.9.9.2</jackson.databind.version>
         <druid.version>1.1.12</druid.version>
         <freemaker.version>2.3.29</freemaker.version>
         <springfox.swagger2.version>2.8.0</springfox.swagger2.version>
@@ -120,7 +121,7 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson.version}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <!--阿里 Druid Spring Boot Starter依赖-->
             <dependency>
