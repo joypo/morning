@@ -40,7 +40,7 @@ public class MybatisConfig {
         factory.setPlugins(new Interceptor[]{pageHelper});
         //添加XML目录
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        factory.setMapperLocations(resolver.getResources("classpath:mapper/*Dao.xml"));
+        factory.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
         return factory.getObject();
     }
 

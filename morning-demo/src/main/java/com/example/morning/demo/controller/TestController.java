@@ -1,5 +1,7 @@
 package com.example.morning.demo.controller;
 
+import com.baidu.fsg.uid.UidGenerator;
+import com.baidu.fsg.uid.service.UidGenService;
 import com.example.morning.demo.base.HttpResult;
 import com.example.morning.demo.domain.Test;
 import com.example.morning.demo.domain.User;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -31,6 +34,12 @@ public class TestController {
 
     @Autowired
     private TestService testService;
+
+    @Resource
+    private UidGenerator defaultUidGenerator;
+
+    @Resource
+    private UidGenerator cachedUidGenerator;
 
     /**
      * @return
@@ -69,5 +78,10 @@ public class TestController {
     @GetMapping("t4")
     public List<Test> test3() {
         return testService.list();
+    }
+
+    @GetMapping("t5")
+    public String getUid() {
+        return "id=" + defaultUidGenerator.getUID();
     }
 }
