@@ -1,7 +1,6 @@
 package com.example.morning.demo.controller;
 
-import com.baidu.fsg.uid.UidGenerator;
-import com.baidu.fsg.uid.service.UidGenService;
+import com.example.id.generator.UidGenerator;
 import com.example.morning.demo.base.HttpResult;
 import com.example.morning.demo.domain.Test;
 import com.example.morning.demo.domain.User;
