@@ -30,7 +30,7 @@ import javax.annotation.Resource;
  * Represents an implementation of {@link WorkerIdAssigner},
  * the worker id will be discarded after assigned to the UidGenerator
  *
- * @author yutianbao
+ * @author
  */
 public class DisposableWorkerIdAssigner implements WorkerIdAssigner {
     private static final Logger LOGGER = LoggerFactory.getLogger(DisposableWorkerIdAssigner.class);

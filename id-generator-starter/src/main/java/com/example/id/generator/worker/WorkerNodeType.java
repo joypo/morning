@@ -22,7 +22,7 @@ import com.example.id.generator.utils.ValuedEnum;
  * <li>CONTAINER: Such as Docker
  * <li>ACTUAL: Actual machine
  *
- * @author yutianbao
+ * @author
  */
 public enum WorkerNodeType implements ValuedEnum<Integer> {
     /**

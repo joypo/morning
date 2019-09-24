@@ -24,7 +24,7 @@ import java.util.Date;
 /**
  * DateUtils provides date formatting, parsing
  *
- * @author yutianbao
+ * @author
  */
 public abstract class DateUtils extends org.apache.commons.lang.time.DateUtils {
     /**

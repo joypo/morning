@@ -23,7 +23,7 @@ import java.util.Enumeration;
 /**
  * NetUtils
  * 
- * @author yutianbao
+ * @author
  */
 public abstract class NetUtils {
 

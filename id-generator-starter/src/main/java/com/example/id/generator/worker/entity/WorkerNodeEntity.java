@@ -23,7 +23,7 @@ import java.util.Date;
 /**
  * Entity for M_WORKER_NODE
  *
- * @author yutianbao
+ * @author
  */
 public class WorkerNodeEntity {
 

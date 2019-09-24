@@ -20,7 +20,7 @@ import com.example.id.generator.exception.UidGenerateException;
 /**
  * Represents a unique id generator.
  *
- * @author yutianbao
+ * @author
  */
 public interface UidGenerator {
 

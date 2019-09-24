@@ -18,7 +18,7 @@ package com.example.id.generator.exception;
 /**
  * UidGenerateException
  * 
- * @author yutianbao
+ * @author
  */
 public class UidGenerateException extends RuntimeException {
 

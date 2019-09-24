@@ -20,7 +20,7 @@ import com.example.id.generator.impl.DefaultUidGenerator;
 /**
  * Represents a worker id assigner for {@link DefaultUidGenerator}
  * 
- * @author yutianbao
+ * @author
  */
 public interface WorkerIdAssigner {
 

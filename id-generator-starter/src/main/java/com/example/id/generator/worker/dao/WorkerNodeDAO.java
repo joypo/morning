@@ -25,7 +25,7 @@ import org.springframework.stereotype.Repository;
 /**
  * DAO for M_WORKER_NODE
  *
- * @author yutianbao
+ * @author
  */
 @Repository
 public interface WorkerNodeDAO {

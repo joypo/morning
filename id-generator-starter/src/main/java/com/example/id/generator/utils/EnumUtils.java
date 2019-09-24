@@ -20,7 +20,7 @@ import org.springframework.util.Assert;
 /**
  * EnumUtils provides the operations for {@link ValuedEnum} such as Parse, value of...
  * 
- * @author yutianbao
+ * @author
  */
 public abstract class EnumUtils {
 

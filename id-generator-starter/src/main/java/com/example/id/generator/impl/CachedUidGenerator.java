@@ -46,7 +46,7 @@ import java.util.List;
  * <li><b>rejectedPutBufferHandler:</b> Policy for rejected put buffer. Default as discard put request, just do logging
  * <li><b>rejectedTakeBufferHandler:</b> Policy for rejected take buffer. Default as throwing up an exception
  * 
- * @author yutianbao
+ * @author
  */
 @ConfigurationProperties(prefix = "uid.cached-uid-generator")
 public class CachedUidGenerator extends DefaultUidGenerator implements DisposableBean {
