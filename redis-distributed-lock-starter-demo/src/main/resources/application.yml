@@ -1,0 +1,12 @@
+server:
+  port: 8999
+spring:
+  application:
+    name: redis-lock-demo
+redisson:
+  lock:
+    server:
+      address: 127.0.0.1:6379
+      password: 1234
+      database: 1
+      type: standalone
