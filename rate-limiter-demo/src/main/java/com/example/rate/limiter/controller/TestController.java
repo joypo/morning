@@ -24,4 +24,9 @@ public class TestController {
     public String test() {
         return "成功test";
     }
+
+    @GetMapping("test1")
+    public String test(String id) {
+        return "成功test" + id;
+    }
 }
