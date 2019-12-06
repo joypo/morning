@@ -37,7 +37,7 @@ public class LimitAspect {
     }
 
     @Around("pointcut()")
-    public void around(ProceedingJoinPoint joinPoint) throws Throwable {
+    public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method signatureMethod = signature.getMethod();
         Limit limit = signatureMethod.getAnnotation(Limit.class);
@@ -60,7 +60,7 @@ public class LimitAspect {
         Number count = (Number) redisTemplate.execute(redisScript, keys, limit.count(), limit.period());
         if (null != count && count.intValue() <= limit.count()) {
             logger.info("第{}次访问key为 {}，描述为 [{}] 的接口", count, keys, limit.name());
-            joinPoint.proceed();
+            return joinPoint.proceed();
         } else {
             throw new LimiterException("访问次数受限制");
         }

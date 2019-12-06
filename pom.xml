@@ -11,6 +11,8 @@
 
     <modules>
         <module>morning-mvn</module>
+        <module>test</module>
+        <module>genx-maven-plugin</module>
     </modules>
 
 
