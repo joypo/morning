@@ -1,0 +1,20 @@
+server:
+  port: 9096
+spring:
+  application:
+    name: master-slave-demo
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:33061/test
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.jdbc.Driver
+    slave:
+      jdbc-url: jdbc:mysql://localhost:33062/test
+      username: root
+      password: 1234
+      driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰映射
