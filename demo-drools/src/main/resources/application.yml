@@ -1,0 +1,30 @@
+server:
+  port: 9096
+spring:
+  application:
+    name: drools-demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password:
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰映射
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.drools.entity
+
+
+swagger:
+  title: drools-swagger
+  description: 规则引擎demo
+  version: 1.1.0.RELEASE
+  license:
+  licenseUrl:
+  termsOfServiceUrl:
+  contact:
+    name: xxx
+    url:
+    email:
+  base-package: com.example.demo.drools

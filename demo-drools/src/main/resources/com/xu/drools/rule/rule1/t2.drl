@@ -1,0 +1,16 @@
+package com.demo.drools;
+import com.example.demo.drools.bean.Point;
+import java.util.List;
+import com.example.demo.drools.bean.Person;
+global java.util.List list;
+rule "2"
+when
+    $m : Point()
+    $p : Person(age > 90) from $m.list
+then
+    System.out.println("hello, 999!");
+    list.add($p);
+end
+
+query "people2"
+    person : Person( age > 30 ) end

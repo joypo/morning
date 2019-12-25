@@ -1,0 +1,9 @@
+package com.demo.drools
+global java.util.List list
+rule "3333"
+when
+    $map: Map(this["A"] < 18 && this["B"] > 2)
+then
+    System.out.println("hello, 999!"+$p.getName());
+    list.addAll(((org.drools.core.spi.Activation)kcontext.getMatch()).getObjectsDeep());
+end

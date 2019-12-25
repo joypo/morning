@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.drools.dao.RulesDao">
+    <insert id="save" parameterType="com.example.demo.drools.entity.Rules">
+        insert into drools_rule (name,rule,create_time,visible) value (#{name},#{rule},#{createTime},#{visible})
+    </insert>
+
+    <insert id="setRule">
+        insert into drools_rule (name,rule) value (#{name},#{rule})
+    </insert>
+
+    <update id="updateRule">
+        update drools_rule set name=#{name},rule=#{rule} where id=#{id}
+    </update>
+</mapper>
