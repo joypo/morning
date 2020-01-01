@@ -1,31 +1,27 @@
-package com.example.genx.builder;
+package com.example.gen.builder;
 
-import com.example.genx.po.TableField;
-import com.example.genx.po.TableInfo;
-import com.example.genx.run.DataSourceConfig;
-import com.example.genx.run.QuerySQL;
-import com.example.genx.run.StrategyConfig;
-import com.google.common.base.CaseFormat;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-import org.apache.commons.collections.CollectionUtils;
+import com.example.gen.config.DataSourceConfig;
+import com.example.gen.config.QuerySQL;
+import com.example.gen.config.StrategyConfig;
+import com.example.gen.po.TableField;
+import com.example.gen.po.TableInfo;
+import com.example.gen.utils.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * @author sunx
- * @date 2019-08-23
+ * @date 2019-12-31
  * @description
  */
-public class GenBuilder {
-
+public class ConfigBuilder {
     /**
      * SQL连接
      */
@@ -41,32 +37,34 @@ public class GenBuilder {
      */
     private StrategyConfig strategy;
 
+    private DataSourceConfig dataSource;
+
     /**
      * 数据库表信息
      */
     private List<TableInfo> tableInfoList;
 
-    /**
-     * 需要排除的字段
-     */
-    private static Set<String> excludeFieldSets = Sets.newHashSet("id", "status", "create_time", "create_user", "create_id", "update_time", "update_user", "update_id");
-
-    public static GenBuilder builder() {
-        GenBuilder builder = new GenBuilder();
-        builder.connection = new DataSourceConfig().getConn();
+    public static ConfigBuilder builder() {
+        ConfigBuilder builder = new ConfigBuilder();
         builder.querySQL = QuerySQL.MYSQL;
-        builder.tableInfoList = Lists.newArrayList();
+        builder.tableInfoList = new ArrayList<>();
         return builder;
     }
 
-    public GenBuilder strategy(StrategyConfig strategy) {
+    public ConfigBuilder strategy(StrategyConfig strategy) {
         this.strategy = strategy;
         return this;
     }
 
-    public GenBuilder build() {
+    public ConfigBuilder dataSource(DataSourceConfig dataSource) {
+        this.dataSource = dataSource;
+        return this;
+    }
+
+    public ConfigBuilder build() {
         PreparedStatement preparedStatement = null;
         try {
+            connection = dataSource.getConn();
             preparedStatement = connection.prepareStatement(querySQL.getTableCommentsSql());
             ResultSet results = preparedStatement.executeQuery();
             Boolean hasDecimal = false;
@@ -95,7 +93,8 @@ public class GenBuilder {
                     }
                     tableInfo.setHasDate(hasDate);
                     tableInfo.setHasDecimal(hasDecimal);
-                    tableInfo.setKeyAutoIncr(tableInfo.getAllFields().stream().filter(a -> a.isKeyAutoIncr()).findFirst().isPresent());
+//                    tableInfo.setKeyAutoIncr(tableInfo.getAllFields().stream().filter(a -> a.isKeyAutoIncr()).findFirst().isPresent());
+                    tableInfo.setKeyAutoIncr(false);
                     this.tableInfoList.add(tableInfo);
                 }
             }
@@ -124,7 +123,7 @@ public class GenBuilder {
      * @return
      */
     private List<TableField> getListFields(String tableName, Boolean excludeFlag) throws SQLException {
-        List<TableField> list = Lists.newArrayList();
+        List<TableField> list = new ArrayList<>();
         PreparedStatement preparedStatement = connection.prepareStatement(String.format(querySQL.getTableFieldsSql(), tableName));
         ResultSet results = preparedStatement.executeQuery();
         while (results.next()) {
@@ -140,12 +139,13 @@ public class GenBuilder {
             }
             // 处理其它信息
             field.setName(results.getString(querySQL.getFieldName()));
-            if (excludeFlag && excludeFieldSets.contains(field.getName())) {
+            if (excludeFlag && dataSource.getExcludeFieldSets().contains(field.getName())) {
                 continue;
             }
             field.setType(results.getString(querySQL.getFieldType()));
             field.setComment(results.getString(querySQL.getFieldComment()));
-            field.setLowerCamelName(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, field.getName()));
+            field.setLowerCamelName(StringUtil.caseFormat(field.getName(), 0));
+            field.setUpperCamelName(StringUtil.caseFormat(field.getName(), 1));
             field.setPropertyName(getPropertyNameByType(field.getType()));
             list.add(field);
         }
@@ -160,7 +160,7 @@ public class GenBuilder {
      */
     private Boolean validateTableName(String tableName) {
         Boolean flag = Objects.equals(false, strategy.getIncludeFlag());
-        if (CollectionUtils.isEmpty(strategy.getInclude())) {
+        if (null == strategy.getInclude() || strategy.getInclude().isEmpty()) {
             return !flag;
         }
         return strategy.getInclude().contains(tableName) | flag;
@@ -197,17 +197,4 @@ public class GenBuilder {
     public List<TableInfo> getTableInfoList() {
         return tableInfoList;
     }
-
-    public void setTableInfoList(List<TableInfo> tableInfoList) {
-        this.tableInfoList = tableInfoList;
-    }
-
-    //    public static void main(String[] args) {
-//        System.out.println(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "test_data"));
-//        System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, "test_data"));
-//
-//        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "testdata"));
-//        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, "TestData"));
-//        System.out.println(CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_HYPHEN, "testData"));
-//    }
 }

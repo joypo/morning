@@ -123,26 +123,26 @@ public class RulesService {
     }
 
     public void test1(Integer id, List<Map<String,Object>> list) {
-        KieHelper kieHelper = new KieHelper();
-        String rules;
-        Rules ru = rulesDao.getById(4);
-        if (ru != null && ru.getRule() != null) {
-            rules = ru.getRule();
-        } else {
-            throw new RuntimeException("RULE_IS_NULL");
-        }
-        KieSession ksession = new KieHelper().addContent(rules, ResourceType.DRL).build().newKieSession();
-        List<Map<String,Object>> list1 = new ArrayList<>();
-        ksession.setGlobal("list", list1);
-        for (Map p : list) {
-            ksession.insert(p);
-        }
-
-        ksession.fireAllRules();
-        System.out.println("完结");
-        for (Map person : list1) {
-            System.out.println(person.get("A"));
-        }
-        ksession.dispose();
+//        KieHelper kieHelper = new KieHelper();
+//        String rules;
+//        Rules ru = rulesDao.getById(4);
+//        if (ru != null && ru.getRule() != null) {
+//            rules = ru.getRule();
+//        } else {
+//            throw new RuntimeException("RULE_IS_NULL");
+//        }
+//        KieSession ksession = new KieHelper().addContent(rules, ResourceType.DRL).build().newKieSession();
+//        List<Map<String,Object>> list1 = new ArrayList<>();
+//        ksession.setGlobal("list", list1);
+//        for (Map p : list) {
+//            ksession.insert(p);
+//        }
+//
+//        ksession.fireAllRules();
+//        System.out.println("完结");
+//        for (Map person : list1) {
+//            System.out.println(person.get("A"));
+//        }
+//        ksession.dispose();
     }
 }

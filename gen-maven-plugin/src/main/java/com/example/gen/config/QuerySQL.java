@@ -1,4 +1,4 @@
-package com.example.genx.run;
+package com.example.gen.config;
 
 /**
  * @author sunx

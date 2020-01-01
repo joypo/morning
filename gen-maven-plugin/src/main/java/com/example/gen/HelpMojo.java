@@ -1,4 +1,4 @@
-package com.example.genx;
+package com.example.gen;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -19,7 +19,7 @@ public class HelpMojo extends AbstractMojo {
             "    <version>1.0.0-SNAPSHOT</version>\n" +
             "    <configuration>\n" +
             "        <!-- 输出目录(默认java.io.tmpdir) -->\n" +
-            "        <outDir>e:\\cache</outDir>\n" +
+            "        <outDir>/Users/sunguo/tmp</outDir>\n" +
             "        <!-- 包名 -->\n" +
             "        <packageName>com.biz.xx</packageName>\n" +
             "        <!-- 模块名 -->\n" +
@@ -34,8 +34,8 @@ public class HelpMojo extends AbstractMojo {
             "            <password>root</password>\n" +
             "            <prefix>tb_</prefix>\n" +
             "            <excludeFields>" +
-            "                <property>create_time</property>"+
-            "                <property>modify_time</property>"+
+            "                <property>create_time</property>" +
+            "                <property>modify_time</property>" +
             "            </excludeFields>\n" +
             "        </dataSource>\n" +
             "        <strategy>\n" +

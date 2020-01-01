@@ -1,4 +1,4 @@
-package com.example.genx.po;
+package com.example.gen.po;
 
 import java.util.List;
 

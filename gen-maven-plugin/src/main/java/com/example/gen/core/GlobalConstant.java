@@ -1,4 +1,4 @@
-package com.example.genx.core;
+package com.example.gen.core;
 
 /**
  * @author sunx

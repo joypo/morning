@@ -1,0 +1,17 @@
+package com.demo.drools
+import com.example.demo.drools.entity.MemberTag
+import java.lang
+global java.util.List list;
+global java.util.List list1;
+
+function Boolean tt(MemberTag m){
+    return Boolean.TRUE;
+}
+
+rule "tag001"
+when
+    $m : MemberTag(tagOne == "A" && tagTwo == null) from list1;
+then
+    list.add($m.getId());
+    System.out.println("hello, tag!"+$m.getId());
+end

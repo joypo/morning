@@ -1,4 +1,4 @@
-package com.example.genx.po;
+package com.example.gen.po;
 
 
 /**
@@ -19,6 +19,16 @@ public class TableField {
      * 列名 user_name
      */
     private String name;
+    /**
+     * 字段名驼峰命名 userName
+     */
+    private String lowerCamelName;
+
+    /**
+     * 字段名驼峰命名 UserName
+     */
+    private String upperCamelName;
+
     /**
      * 类型 varchar
      */
@@ -79,5 +89,21 @@ public class TableField {
 
     public void setPropertyName(String propertyName) {
         this.propertyName = propertyName;
+    }
+
+    public String getLowerCamelName() {
+        return lowerCamelName;
+    }
+
+    public void setLowerCamelName(String lowerCamelName) {
+        this.lowerCamelName = lowerCamelName;
+    }
+
+    public String getUpperCamelName() {
+        return upperCamelName;
+    }
+
+    public void setUpperCamelName(String upperCamelName) {
+        this.upperCamelName = upperCamelName;
     }
 }

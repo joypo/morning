@@ -1,8 +1,8 @@
-package com.example.genx;
+package com.example.gen;
 
-import com.example.genx.builder.ConfigBuilder;
-import com.example.genx.config.DataSourceConfig;
-import com.example.genx.config.StrategyConfig;
+import com.example.gen.builder.ConfigBuilder;
+import com.example.gen.config.DataSourceConfig;
+import com.example.gen.config.StrategyConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugins.annotations.Parameter;

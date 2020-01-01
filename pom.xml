@@ -13,6 +13,8 @@
         <module>morning-mvn</module>
         <module>test</module>
         <module>genx-maven-plugin</module>
+        <module>genx-maven-plugin-demo</module>
+        <module>gen-maven-plugin</module>
     </modules>
 
 

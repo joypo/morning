@@ -1,35 +1,34 @@
-package com.example.morning.gen;
+package com.example.gen.utils;
 
-import com.google.common.base.CaseFormat;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author sunx
- * @date 2019-09-12
+ * @date 2020-01-01
  * @description
  */
-public class Test {
-    public static void main(String[] args) {
-//        String k = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_CAMEL, "user_name");
-//        System.out.println(CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, "test_data"));
-//        System.out.println(System.getProperty("user.dir"));
-
-
-        String s1 = "_zhangsdsd_ksks";
-
-        System.out.println(caseFormat(s1,0));
-
-    }
-
-    private static String caseFormat(String value, int type) {
+public class StringUtil {
+    /**
+     * 驼峰转换
+     *
+     * @param value
+     * @param type  0 小写 1  大写
+     */
+    public static String caseFormat(String value, int type) {
         if (StringUtils.isBlank(value)) {
             return value;
         }
-        List<String> list = Stream.of(value.split("_")).filter(a -> StringUtils.isNotBlank(a)).collect(Collectors.toList());
+        value = value.toLowerCase();
+        String[] arr = value.split("_");
+        List<String> list = new ArrayList<>();
+        for (String item : arr) {
+            if (StringUtils.isNotBlank(item)) {
+                list.add(item);
+            }
+        }
         String pre = list.get(0);
         if (1 == type) {
             pre = initialCapital(pre);
