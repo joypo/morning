@@ -32,12 +32,12 @@
                     <outDir>/Users/sunguo/tmp</outDir>
                     <!-- 开发者名称 -->
                     <packageName>com.biz.dap.common.entity</packageName>
-                    <module>user</module>
+                    <module>tag</module>
                     <author>sunx</author>
                     <!-- 数据源配置，( **必配** ) -->
                     <dataSource>
                         <driverName>com.mysql.jdbc.Driver</driverName>
-                        <url>jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&amp;useSSL=false</url>
+                        <url>jdbc:mysql://127.0.0.1:3306/data_asset_platform?useUnicode=true&amp;useSSL=false</url>
                         <username>root</username>
                         <password>root</password>
                         <prefix>tb_</prefix>
@@ -50,10 +50,10 @@
                     <strategy>
                         <!-- 要操作的表-->
                         <includeArray>
-                            <property>sec_user</property>
-                            <property>table1</property>
+                            <property>dap_tag</property>
+                            <property>dap_tag_category</property>
                         </includeArray>
-                        <includeFlag>false</includeFlag>
+                        <includeFlag>true</includeFlag>
                     </strategy>
                 </configuration>
             </plugin>
