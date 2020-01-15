@@ -35,7 +35,7 @@
         <jcommander.version>1.74</jcommander.version>
         <hamcrest.core.version>1.3</hamcrest.core.version>
 
-        <plugin.compiler.version>3.5.1</plugin.compiler.version>
+        <plugin.compiler.version>3.8.1</plugin.compiler.version>
         <plugin.source.version>3.0.1</plugin.source.version>
         <plugin.plexus.compiler.version>2.7</plugin.plexus.compiler.version>
         <plugin.reports.version>2.9</plugin.reports.version>
