@@ -4,35 +4,28 @@ import lombok.Data;
 
 /**
  * @author sunx
- * @date 2019-08-23
- * @description 表明细信息
+ * @date 2020-01-08
  */
 @Data
 public class TableField {
-    /**
-     * 是否是主键
-     */
     private boolean keyFlag;
     /**
-     * 列名 user_name
+     * 主键是否为自增类型
+     */
+    private boolean keyIdentityFlag;
+    /**
+     * user_name
      */
     private String name;
     /**
-     * 类型 varchar
-     */
-    private String type;
-    /**
-     * 备注信息
-     */
-    private String comment;
-
-    /**
-     * 字段名驼峰命名 userName
+     * 小写驼峰 userName
      */
     private String lowerCamelName;
-
     /**
-     * 数据库类型对应的字段类型 String
+     * 大写驼峰 UserName
      */
+    private String upperCamelName;
+    private String type;
     private String propertyName;
+    private String comment;
 }

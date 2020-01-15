@@ -21,6 +21,8 @@ public class Test {
 
         String s1 = "_zhangsdsd_ksks";
 
+        String kk = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, s1);
+        System.out.println(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, "_test_data"));
         System.out.println(caseFormat(s1,0));
 
     }

@@ -23,6 +23,7 @@ public class TbTest1 {
      */
     @Column(name = "id")
     @ApiModelProperty("主键")
+    @Id
     private Integer id;
 
     /**
