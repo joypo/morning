@@ -2,6 +2,7 @@ package com.example.demo.drools.service;
 
 import com.example.demo.drools.bean.Person;
 import com.example.demo.drools.bean.Point;
+import com.example.demo.drools.bean.Rule11;
 import com.example.demo.drools.dao.RulesDao;
 import com.example.demo.drools.entity.Rules;
 import io.swagger.models.auth.In;
@@ -122,7 +123,28 @@ public class RulesService {
         ksession.dispose();
     }
 
-    public void test1(Integer id, List<Map<String,Object>> list) {
+    public void test1(Integer id, List<Map<String, Object>> list) {
+
+    }
+
+    public void test3(Rule11 rule11) {
+        System.out.println("开始");
+        KieHelper kieHelper = new KieHelper();
+        String rules;
+        Rules ru = rulesDao.getById(rule11.getRuleId());
+        if (ru != null && ru.getRule() != null) {
+            rules = ru.getRule();
+        } else {
+            throw new RuntimeException("RULE_IS_NULL");
+        }
+        KieSession ksession = kieHelper.addContent(rules, ResourceType.DRL).build().newKieSession();
+        ksession.insert(rule11);
+        ksession.fireAllRules();
+        System.out.println("完结");
+        ksession.dispose();
+    }
+
+//    public void test1(Integer id, List<Map<String, Object>> list) {
 //        KieHelper kieHelper = new KieHelper();
 //        String rules;
 //        Rules ru = rulesDao.getById(4);
@@ -144,5 +166,5 @@ public class RulesService {
 //            System.out.println(person.get("A"));
 //        }
 //        ksession.dispose();
-    }
+//    }
 }

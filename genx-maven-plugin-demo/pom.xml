@@ -26,7 +26,7 @@
             <plugin>
                 <groupId>com.example</groupId>
                 <artifactId>gen-maven-plugin</artifactId>
-                <version>1.0.0.14</version>
+                <version>1.0.0.15</version>
                 <configuration>
                     <!-- 输出目录(默认java.io.tmpdir) -->
                     <outDir>/Users/sunguo/tmp</outDir>
@@ -36,7 +36,7 @@
                     <author>sunx</author>
                     <!-- 数据源配置，( **必配** ) -->
                     <dataSource>
-                        <driverName>com.mysql.jdbc.Driver</driverName>
+                        <driverName>com.mysql.cj.jdbc.Driver</driverName>
                         <url>jdbc:mysql://127.0.0.1:3306/data_asset_platform?useUnicode=true&amp;useSSL=false</url>
                         <username>root</username>
                         <password>root</password>

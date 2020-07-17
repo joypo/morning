@@ -1,0 +1,20 @@
+server:
+  port: 9990
+spring:
+  application:
+    name: wx-mp-demo
+
+wx:
+  mp:
+    app-id: wx9c3fec99c63d4f24
+    secret: c182b8d0d00b03622d6f4675d20b68bf
+    token:
+    aes-key:
+    config-storage:
+      type: redis
+      redis:
+        host: 127.0.0.1
+        port: 6379
+        password: 1234
+
+

@@ -1,0 +1,9 @@
+package com.demo.drools;
+
+rule "Your First Rule1_1"
+    when
+      	$map:Map(this['12'] != null)
+    then
+        //actions
+        System.out.println("SimpleEntity.id:"+$map.get("12"));
+end

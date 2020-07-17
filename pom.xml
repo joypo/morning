@@ -15,6 +15,8 @@
         <module>genx-maven-plugin</module>
         <module>genx-maven-plugin-demo</module>
         <module>gen-maven-plugin</module>
+        <module>guava-demo</module>
+        <module>demo-netty-websocket</module>
     </modules>
 
 
@@ -50,7 +52,7 @@
         <plugin.jxr.version>2.5</plugin.jxr.version>
         <plugin.git.commit.id.version>2.2.1</plugin.git.commit.id.version>
         <plugin.dashboard.version>1.0.0-beta-1</plugin.dashboard.version>
-        <plugin.plugin.version>3.5.2</plugin.plugin.version>
+        <plugin.plugin.version>3.6.0</plugin.plugin.version>
     </properties>
 
     <dependencies>

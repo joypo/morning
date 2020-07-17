@@ -1,6 +1,7 @@
 package com.example.demo.drools.controller;
 
 import com.example.demo.drools.bean.Person;
+import com.example.demo.drools.bean.Rule11;
 import com.example.demo.drools.entity.Rules;
 import com.example.demo.drools.service.RulesService;
 import com.example.demo.drools.service.RulesTestService;
@@ -43,8 +44,14 @@ public class DroolsController {
     }
 
     @PostMapping("test1")
-    public void test1(@RequestBody List<Map<String,Object>> p) {
+    public void test1(@RequestBody List<Map<String, Object>> p) {
         Integer id = 3;
         rulesService.test1(id, p);
+    }
+
+
+    @PostMapping("test2")
+    public void test2(@RequestBody Rule11 rule11) {
+        rulesService.test3(rule11);
     }
 }

@@ -1,0 +1,8 @@
+package com.demo.drools
+import com.example.demo.drools.bean.Rule11
+rule "r24"
+when
+    $p : Rule11(id=="9")
+then
+    System.out.println( "hello, tag!" + $p.getMap().get("a") );
+end

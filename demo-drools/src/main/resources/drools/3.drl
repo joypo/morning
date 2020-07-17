@@ -1,0 +1,11 @@
+package com.demo.drools
+import com.example.demo.drools.bean.Rule11
+rule "r241"
+when
+//>  >=  <  <=  ==  !=  contains / not contains / memberOf / not memberOf /matches/ not matches
+//    $p : Rule11(id=="9",map["a"] contains "m")  // 包含
+//    $p : Rule11(id=="9",map["a"] not contains "m") // 不包含
+    $p : Rule11(id == "9",map["a"] not contains "m")
+then
+    System.out.println( "hello, tag!" + $p.getMap().get("a") );
+end

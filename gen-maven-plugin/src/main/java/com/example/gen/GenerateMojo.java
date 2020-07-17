@@ -40,11 +40,19 @@ public class GenerateMojo extends AbstractGenerateMojo {
         PACKAGE = this.getPackageName();
         MODULE = this.getModule();
         System.out.println("开始执行");
+        try {
+            String templatePath = GenerateMojo.class.getResource("/").getPath() + "/template";
+            System.out.println(templatePath);
+        } catch (Exception ex) {
+            System.out.println("999");
+        }
+
+
         List<TableInfo> list = config.getTableInfoList();
         try {
-            genCode(list);
 
             String osName = System.getProperty("os.name");
+            genCode(list);
             if (osName != null) {
                 if (osName.contains("Mac")) {
                     Runtime.getRuntime().exec("open " + PROJECT_PATH);
