@@ -17,6 +17,7 @@
         <module>gen-maven-plugin</module>
         <module>guava-demo</module>
         <module>demo-netty-websocket</module>
+        <module>db-doc-gen-demo</module>
     </modules>
 
 
