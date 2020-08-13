@@ -60,7 +60,7 @@
                     <!--driver-->
                     <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
                     <!--jdbc url-->
-                    <jdbcUrl>jdbc:mysql://125.64.43.53:43306/biz_jj_recreation</jdbcUrl>
+                    <jdbcUrl>jdbc:mysql://125.64.43.53:43306/biz_jj_jssy</jdbcUrl>
                     <!--生成文件类型-->
                     <fileType>HTML</fileType>
                     <!--文件输出目录-->
